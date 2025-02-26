@@ -7,6 +7,11 @@
     task_start_epoch: "{{ now().strftime('%s') }}"
 
 
+- name: Trace - Show Env vars
+  ansible.builtin.shell:
+    cmd: "export"
+
+
 - name: Gitlab CI Detection
   ansible.builtin.set_fact:
     project_path: "{{ lookup('env', 'CI_PROJECT_PATH') }}"
